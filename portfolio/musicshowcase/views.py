@@ -4,3 +4,9 @@ from .models import Composition
 def composition_list(request):
     compositions = Composition.objects.all()
     return render(request, 'musicshowcase/composition_list.html', {'compositions': compositions})
+
+def components(request):
+    return render(request, 'musicshowcase/components.html', {})
+
+def index(request):
+    return render(request, 'musicshowcase/index.html', {})
