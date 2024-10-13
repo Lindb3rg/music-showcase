@@ -4,7 +4,7 @@ class Composition(models.Model):
     
     GENRE_CHOICES = [
         ('classical', 'Classical'),
-        ('jazz', 'Jazz'),
+        ('acoustic', 'Acoustic'),
         ('rock', 'Rock'),
         ('pop', 'Pop'),
         ('hip_hop', 'Hip Hop'),
@@ -19,6 +19,17 @@ class Composition(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     genre = models.CharField(max_length=50, choices=GENRE_CHOICES, default='classical')
 
+
+    def __str__(self):
+        return self.title
+
+
+class Service(models.Model):
+    
+    
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    
 
     def __str__(self):
         return self.title
