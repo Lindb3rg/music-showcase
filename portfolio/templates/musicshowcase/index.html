@@ -68,7 +68,7 @@
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
             <h6 class="section-title text-center">Music Portfolio</h6>
-            <h6 class="section-subtitle mb-5 text-center">New stunning projects for our amazing clients</h6>
+            <h6 class="section-subtitle mb-5 text-center">Current Available Compositions</h6>
             
             
             
@@ -271,43 +271,65 @@
     </section>
     <!-- End of Testmonial Section --> {% endcomment %}
 
+    
+        
+        
+
+        
+    
+
     <!-- Contact Section -->
     <section id="contact" class="section has-img-bg pb-0">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-5 my-3">
-                    <h6 class="mb-0">Phone</h6>
-                    <p class="mb-4">+ 123-456-7890</p>
-
-                    <h6 class="mb-0">Address</h6>
-                    <p class="mb-4">12345 Fake ST NoWhere AB Country</p>
-
-                    <h6 class="mb-0">Email</h6>
-                    <p class="mb-0">info@website.com</p>
-                    <p></p>
-                </div>
+                
                 <div class="col-md-7">
-                    <form>
-                        <h4 class="mb-4">Drop Us A Line</h4>
+                    <form method="post" action="{% url 'index' %}" autocomplete="off">
+                        {% csrf_token %}
+                        <h4 class="mb-4">Get in touch</h4>
+                    
                         <div class="form-row">
+                            <!-- Name Field -->
                             <div class="form-group col-sm-4">
-                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name" placeholder="Name">
+                                {{ form.name.errors }}
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" 
+                                       name="name" placeholder="Name"
+                                       value="{{ form.name.value|default_if_none:'' }}">
                             </div>
+                    
+                            <!-- Email Field -->
                             <div class="form-group col-sm-4">
-                                <input type="email" class="form-control text-white rounded-0 bg-transparent" name="Email" placeholder="Email">
+                                {{ form.email.errors }}
+                                <input type="email" class="form-control text-white rounded-0 bg-transparent" 
+                                       name="email" placeholder="Email" 
+                                       value="{{ form.email.value|default_if_none:'' }}">
                             </div>
+                    
+                            <!-- Subject Field -->
                             <div class="form-group col-sm-4">
-                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="subject" placeholder="Subject">
+                                {{ form.subject.errors }}
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" 
+                                       name="subject" placeholder="Subject" 
+                                       value="{{ form.subject.value|default_if_none:'' }}">
                             </div>
+                    
+                            <!-- Message Field -->
                             <div class="form-group col-12">
-                                <textarea name="message" id="" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Message"></textarea>
-
+                                {{ form.message.errors }}
+                                <textarea name="message" cols="30" rows="4" 
+                                          class="form-control text-white rounded-0 bg-transparent" 
+                                          placeholder="Message">{{ form.message.value|default_if_none:'' }}</textarea>
                             </div>
+                    
+                            <!-- Submit Button -->
                             <div class="form-group col-12 mb-0">
                                 <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>
-                            </div>                          
-                        </div>                          
+                            </div>
+                        </div>
                     </form>
+                    
+                    
+                    
                 </div>
             </div>
             <!-- Page Footer -->
