@@ -67,7 +67,7 @@
 
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
-            <h6 class="section-title text-center">My Music Portfolio</h6>
+            <h6 class="section-title text-center">Music Portfolio</h6>
             <h6 class="section-subtitle mb-5 text-center">New stunning projects for our amazing clients</h6>
             
             
@@ -109,40 +109,32 @@
 
     <!-- Service Section -->
     <section  id="service" class="section pt-0">
+        
         <div class="container">
-            <h6 class="section-title text-center">My Service</h6>
-            <h6 class="section-subtitle text-center mb-5 pb-3">Voluptates architecto provident deserunt.</h6>
-
+            
+            <h6 class="section-title text-center">Services</h6>
+            {% comment %} <h6 class="section-subtitle text-center mb-5 pb-3">The services I'm offering</h6> {% endcomment %}
+            
             <div class="row">
+                {% for service in services %}
                 <div class="col-md-4">
                     <div class="card mb-4 mb-md-0">
                         <div class="card-body">
-                            <small class="text-primary font-weight-bold">01</small>
-                            <h5 class="card-title mt-3"> Beatae quo <h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
+                            <small class="text-primary font-weight-bold">{{ forloop.counter }}</small>
+                            <h5 class="card-title mt-3"> {{ service.title }} <h5>
+                            <p class="mb-0"> {{ service.description }} </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">02</small>
-                            <h5 class="card-title mt-3">Delectus Suscipit<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">03</small>
-                            <h5 class="card-title mt-3">Itaque harum<h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, cquasi cupiditate voluptate debitis saepe dolorem totam dolor repudiandae quo nihil, repellendus nesciunt ab fuga quae, minima reprehenderit sequi fugit.</p>
-                        </div>
-                    </div>
-                </div>              
+                {% endfor %}   
+            
+                
+                
             </div>
+             
+            
         </div>
+        
     </section>
     <!-- End OF Service Section -->
 
@@ -155,15 +147,15 @@
                     <h6 class="section-title mb-0">About Me</h6>
                     <h6 class="section-subtitle mb-4">Architecto provident deserunt</h6>
                     <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate molestiae temporibus et tenetur unde quasi, cum nemo quo, molestias architecto alias voluptatibus corrupti corporis earum. Necessitatibus maxime modi ipsam, quod!</p>
-                    <img src="{% static 'imgs/about.jpg' %}" alt="" class="w-100 mt-3 shadow-sm">
+                    <img src="{% static 'imgs/studio.jpg' %}" alt="" class="w-100 mt-3 shadow-sm">
                 </div>
                 <div class="col-md-6 pl-md-5">
                     <div class="row">
                         <div class="col-6">
-                            <img src="{% static 'imgs/about-1.jpg' %}" alt="" class="w-100 shadow-sm">
+                            <img src="{% static 'imgs/synth.jpg' %}" alt="" class="w-100 shadow-sm">
                         </div>
                         <div class="col-6">
-                            <img src="{% static 'imgs/about-2.jpg'%}" alt="" class="w-100 shadow-sm">
+                            <img src="{% static 'imgs/headphones.jpg'%}" alt="" class="w-100 shadow-sm">
                         </div>
                         <div class="col-12 mt-4">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo iusto quidem laborum atque, sapiente ipsa excepturi fuga cum sed in assumenda eos quasi harum culpa laboriosam nulla, incidunt quae. Voluptatum.</p>
@@ -182,7 +174,7 @@
     
     
 
-    <!-- Blog Section -->
+    {% comment %} <!-- Blog Section -->
     <section class="section" id="blog">
         <div class="container">
             <h6 class="section-title mb-0 text-center">Latest Articles</h6>
@@ -222,9 +214,11 @@
             </div>
         </div>
     </section>
-    <!-- End of Blog Section -->
+    <!-- End of Blog Section --> {% endcomment %}
 
-    <!-- Testmonial Section -->
+
+
+    {% comment %} <!-- Testmonial Section -->
     <section class="section" id="testmonial">
         <div class="container">
             <h6 class="section-title text-center mb-0">Testmonials</h6>
@@ -275,7 +269,7 @@
             </div>
         </div>
     </section>
-    <!-- End of Testmonial Section -->
+    <!-- End of Testmonial Section --> {% endcomment %}
 
     <!-- Contact Section -->
     <section id="contact" class="section has-img-bg pb-0">
