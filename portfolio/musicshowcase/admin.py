@@ -1,3 +1,4 @@
 from django.contrib import admin
+from musicshowcase.models import Composition
 
-# Register your models here.
+admin.site.register(Composition)

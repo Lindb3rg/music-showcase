@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Composition
 
-# Create your views here.
+def composition_list(request):
+    compositions = Composition.objects.all()
+    return render(request, 'music/composition_list.html', {'compositions': compositions})
