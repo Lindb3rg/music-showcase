@@ -4,23 +4,26 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with LeadMark landing page.">
+    
     <meta name="author" content="Devcrud">
-    <title>LeadMark Landing page | Free Bootstrap 4.3.x landing page</title>
+    <title>Adam Lindberg Music</title>
     <!-- font icons -->
     <link rel="stylesheet" type="text/css" href='{% static 'vendors/themify-icons/css/themify-icons.css'%}'>
    <!-- Bootstrap + Steller  -->
-   
+   <!-- Add Bootstrap CSS in your base template or index.html -->
+    
+
    <link rel="stylesheet" type="text/css" href='{% static 'css/leadmark.css'%}'>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
+
     <!-- page Navigation -->
     <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/imgs/logo.svg" alt="">
-            </a>
+            {% comment %} <a class="navbar-brand" href="#">
+                <img src="{% static 'imgs/logo.svg'%}" style="width: 100px; height: auto;" alt="">
+            </a> {% endcomment %}
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,17 +38,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#portfolio">Music Portfolio</a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link" href="#blog">Blog</a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'musicshowcase:logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'musicshowcase:user_login' %}">Logout</a>
+                    </li>
+                    {% endif %} 
                 
                 </ul>
             </div>
         </div>
     </nav>
+    
     <!-- End Of Second Navigation -->
 
     <!-- Page Header -->
@@ -62,13 +75,12 @@
         <div class="mouse-icon"><div class="wheel"></div></div>
     </header>
     <!-- End Of Page Header -->
-
     
 
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
             <h6 class="section-title text-center">Music Portfolio</h6>
-            <h6 class="section-subtitle mb-5 text-center">Current Available Compositions</h6>
+            <h6 class="section-subtitle mb-5 text-center">Filter compositions by genre</h6>
             
             
             
@@ -95,7 +107,7 @@
                                 <h6 class="title">{{ composition.title }}</h6>
                                 <p class="subtitle">{{ composition.description }}</p>
                             </div>
-                            <audio controls>
+                            <audio controls controlsList="nodownload">
                                 <source src="{{ composition.audio_file.url }}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
@@ -170,51 +182,24 @@
     </section>
     <!-- End OF About Section -->
 
-    <!-- Portfolio Section -->
-    
-    
 
-    {% comment %} <!-- Blog Section -->
-    <section class="section" id="blog">
+    {% comment %} TODO: FIXA SOCIALMEDIER-LÄNKAR {% endcomment %}
+    {% comment %} <section class="section" id="blog">
         <div class="container">
             <h6 class="section-title mb-0 text-center">Latest Articles</h6>
             <h6 class="section-subtitle mb-5 text-center">Architecto provident deserunt eveniet libero</h6>
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card border-0 mb-4">
-                        <img src="{% static 'imgs/blog-1.jpg' %}" alt="" class="card-img-top w-100">
-                        <div class="card-body">                         
-                            <h6 class="card-title">Pariatur Omnis Harum quae sint.</h6>
-                            <p>Fuga quae ratione inventore Perferendis porro.</p>
-                            <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
-                        </div>
-                    </div>
+                    <div class="ti-instagram white" style="font-size: 100px;"></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card border-0 mb-4">
-                        <img src="{% static 'imgs/blog-2.jpg' %}" alt="" class="card-img-top w-100">
-                        <div class="card-body">                         
-                            <h6 class="card-title"> Harum Quae Porro</h5>
-                            <p>Fuga quae ratione inventore Perferendis porro.</p>
-                            <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 mb-4">
-                        <img src="{% static 'imgs/blog-3.jpg' %}" alt="" class="card-img-top w-100">
-                        <div class="card-body">                         
-                            <h6 class="card-title">Qui optio neque alias</h6>
-                            <p>Fuga quae ratione inventore Perferendis porro.</p>
-                            <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
-                        </div>
-                    </div>
+                    <div class="ti-facebook white" style="font-size: 100px;"></div>    
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End of Blog Section --> {% endcomment %}
+    </section> {% endcomment %}
+
 
 
 
@@ -284,7 +269,7 @@
             <div class="row align-items-center">
                 
                 <div class="col-md-7">
-                    <form method="post" action="{% url 'index' %}" autocomplete="off">
+                    <form method="post" action="{% url 'musicshowcase:index' %}" autocomplete="off">
                         {% csrf_token %}
                         <h4 class="mb-4">Get in touch</h4>
                     
@@ -329,12 +314,16 @@
                     </form>
                     
                     
+
+                    
+                    
+                    
                     
                 </div>
             </div>
             <!-- Page Footer -->
             <footer class="mt-5 py-4 border-top border-secondary">
-                <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, LeadMark Created By <a href="https://www.devcrud.com" target="_blank">DevCrud.</a>  All rights reserved </p>     
+                <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, Website built by me and powered by <a href="https://www.djangoproject.com/" target="_blank">Django.</a> All rights reserved </p>     
             </footer>
             <!-- End of Page Footer -->  
         </div>
@@ -352,6 +341,10 @@
 
     <!-- LeadMark js -->
     <script src="{% static 'js/leadmark.js' %}"></script>
+
+    
+    
+
 
 </body>
 </html>
