@@ -21,9 +21,7 @@
     <!-- page Navigation -->
     <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
         <div class="container">
-            {% comment %} <a class="navbar-brand" href="#">
-                <img src="{% static 'imgs/logo.svg'%}" style="width: 100px; height: auto;" alt="">
-            </a> {% endcomment %}
+            
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -64,8 +62,10 @@
     <!-- Page Header -->
     <header class="header">
         <div class="overlay">
+            
             <h1 class="subtitle">Welcome to </h1>
-            <h1 class="title">Adam Lindberg Music</h1>  
+            <h1 class="title">Adam Lindberg Music</h1>
+            
         </div>  
         <div class="shape">
             <svg viewBox="0 0 1500 200">
@@ -75,7 +75,7 @@
         <div class="mouse-icon"><div class="wheel"></div></div>
     </header>
     <!-- End Of Page Header -->
-    
+    <h6 class="subtitle text-center">Currently logged in as {{ user.username }}</h6>
 
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
@@ -95,6 +95,8 @@
                 {% endfor %}
                 
             </div>
+            
+             
 
 
             <div class="portfolio-container">
@@ -174,6 +176,7 @@
                             <p><b>Aliquid fuga sunt velit, temporibus molestias ab. Ipsa nesciunt totam, aliquid dignissimos.</b><br>
                             </p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ut a dolorem, consectetur, eos suscipit consequatur magnam est dolore obcaecati adipisci expedita, vero, iste ducimus qui numquam animi facilis officia?</p>
+                            <p>Follow me on instagram:</p> <a href="http://www.instagram.com/adamlindbergmusic" target="blank"><div class="ti-instagram white" style="font-size: 40px;"></div></a>
                         </div>
                     </div>
                 </div>

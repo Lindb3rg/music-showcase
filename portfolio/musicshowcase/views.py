@@ -25,6 +25,8 @@ def index(request):
     unique_genres = Composition.objects.values_list('genre', flat=True).distinct()
     genres_dict = {genre: genre.replace('_', ' ') for genre in unique_genres}
     
+    # username = request.user.username
+    
     success = False
     
     if request.method == 'POST':
