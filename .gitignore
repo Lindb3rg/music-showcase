@@ -1,7 +1,7 @@
 /env
 .env
 portfolio/media
-portfolio/static
+
 
 __pycache__/
 *.py[cod]
