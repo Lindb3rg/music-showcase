@@ -11495,7 +11495,7 @@ textarea.form-control {
   }
   .header {
     
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   }
 }
