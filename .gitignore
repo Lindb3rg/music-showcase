@@ -1,0 +1,11 @@
+env
+docker-compose.yaml
+db.sqlite3
+docker-compose.yml
+Dockerfile
+media/
+.DS_Store
+__pycache__/
+.DS_Store
+static/vendors/
+static/scss_/

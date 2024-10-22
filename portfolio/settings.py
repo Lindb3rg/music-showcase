@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 
 from dotenv import load_dotenv
-from django.core.exceptions import ImproperlyConfigured
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -206,3 +205,8 @@ AWS_QUERYSTRING_AUTH = True
 
 # Define the URL for media files
 MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
+
+
+# Configure Django App for Heroku.
+import django_on_heroku
+django_on_heroku.settings(locals())
