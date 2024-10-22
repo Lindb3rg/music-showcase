@@ -11425,7 +11425,7 @@ textarea.form-control {
   height: 100vh;
   min-height: 500px;
   background: url(../imgs/header.jpg) no-repeat center center fixed;
-  background-size: contain;
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -11496,6 +11496,7 @@ textarea.form-control {
   .header {
     background-size: cover;
     background-position: center;
+    background-attachment: scroll; 
   }
 }
 
