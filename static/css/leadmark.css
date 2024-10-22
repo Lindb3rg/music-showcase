@@ -11493,6 +11493,11 @@ textarea.form-control {
   .header .shape svg {
     bottom: 0;
   }
+  .header {
+    background-attachment: scroll; /* Ensure it's disabled on smaller screens */
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .header.components-header {
