@@ -11494,7 +11494,7 @@ textarea.form-control {
     bottom: 0;
   }
   .header {
-    background-attachment: scroll; /* Ensure it's disabled on smaller screens */
+    
     background-size: cover;
     background-position: center;
   }
