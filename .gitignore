@@ -7,6 +7,4 @@ media/
 .DS_Store
 __pycache__/
 .DS_Store
-static/vendors/
-static/scss_/
 .env
