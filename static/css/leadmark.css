@@ -11681,9 +11681,9 @@ textarea.form-control {
   display: -webkit-flex;
   display: flex;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
+  -webkit-justify-content: space-around;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-around;
   flex-wrap: wrap;
 }
 
