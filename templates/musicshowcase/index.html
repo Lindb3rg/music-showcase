@@ -109,10 +109,12 @@
                                 <h6 class="title">{{ composition.title }}</h6>
                                 <p class="subtitle">{{ composition.description }}</p>
                             </div>
+                            <div class="text-holder">
                             <audio controls controlsList="nodownload">
                                 <source src="{{ composition.audio_file.url }}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
+                            </div>
                         </div>   
                     </div>             
                 </div>
