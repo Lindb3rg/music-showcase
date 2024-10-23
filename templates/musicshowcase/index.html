@@ -103,19 +103,28 @@
                     <div class="portfolio-itemSynth src="{% static 'imgs/web-1.jpg' %}" class="img-fluid" alt="">
                         <div class="content-holder" style="padding: 15px;">
                             <a class="img-popup" href="{% static '/imgs/web-1.jpg' %}"></a>
-                            <div class="text-holder" style="padding: 10px;">
-                                <h6 class="title">{{ composition.title }}</h6>
-                                <p class="subtitle">{{ composition.description }}</p>
-                            </div>
-                            <div class="text-holder">
-                            <audio controls controlsList="nodownload" class="audio-player">
-                                <source src="{{ composition.audio_file.url }}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
+                            <div class="row">
+                                <div class="card mb-4 mb-md-0">
+                                    <div class="card-body">
+                                        <div class="text-holder">
+                                            <h5 class="card-title mt-3"> {{ composition.title }} <h5>
+                                            <p class="mb-0"> {{ composition.description }} </p>
+                                        </div>
+                                        <div class="text-holder" style="padding-top: 10px;">
+                                            <audio controls controlsList="nodownload" class="audio-player">
+                                                <source src="{{ composition.audio_file.url }}" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>   
                     </div>             
                 </div>
+                
+
                 {% endfor %}   
             </div>
         </div>            
