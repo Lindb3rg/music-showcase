@@ -67,3 +67,19 @@ $(document).ready(function() {
         alert("There was an error sending your message. Please correct the form.");
     }
 });
+
+
+const audioPlayers = document.querySelectorAll('.audio-player');
+
+// Loop through all audio players and add event listener to each
+audioPlayers.forEach(player => {
+    player.addEventListener('play', function() {
+        // Pause all other players when one starts playing
+        audioPlayers.forEach(otherPlayer => {
+            if (otherPlayer !== player) {
+                otherPlayer.pause();
+            }
+        });
+    });
+});  
+
