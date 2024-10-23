@@ -11500,6 +11500,17 @@ textarea.form-control {
   }
 }
 
+@media (max-width: 576px) {
+  .header .shape svg {
+    bottom: 0;
+  }
+  .header {
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed; 
+  }
+}
+
 .header.components-header {
   max-height: 450px !important;
   height: 450px;
