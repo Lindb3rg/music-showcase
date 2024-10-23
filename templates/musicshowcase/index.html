@@ -100,10 +100,10 @@
             <div class="portfolio-container">
                 {% for composition in compositions %}
                 <div class="col-md-6 col-lg-4 {{ composition.genre }} new">
-                    <div class="portfolio-itemSynth src="{% static 'imgs/web-1.jpg' %}" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                        <div class="content-holder">
+                    <div class="portfolio-itemSynth src="{% static 'imgs/web-1.jpg' %}" class="img-fluid" alt="">
+                        <div class="content-holder" style="padding: 15px;">
                             <a class="img-popup" href="{% static '/imgs/web-1.jpg' %}"></a>
-                            <div class="text-holder">
+                            <div class="text-holder" style="padding: 10px;">
                                 <h6 class="title">{{ composition.title }}</h6>
                                 <p class="subtitle">{{ composition.description }}</p>
                             </div>
