@@ -11471,6 +11471,14 @@ textarea.form-control {
   font-weight: bold;
 }
 
+@media (max-width: 349px) {
+  .header .overlay .title {
+    font-size: calc(25px + (70 - 30) * ((100vw - 320px) / (1200 - 320)));
+    font-weight: bold;
+  }
+}
+
+
 .header .shape svg {
   position: absolute;
   bottom: -28px;
@@ -11509,6 +11517,18 @@ textarea.form-control {
     background-position: center;
     background-attachment:fixed; 
   }
+}
+@media (max-width: 349px) {
+  .header .shape svg {
+    bottom: 0;
+  }
+  .header {
+    background-size:cover;
+    background-position: center;
+    background-attachment:local; 
+  }
+  
+  
 }
 
 .header.components-header {
