@@ -11419,6 +11419,17 @@ textarea.form-control {
     margin-top: 15px;
   }
 }
+@media (max-width: 576px) {
+  .header {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    background: url(../imgs/header.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+  }
+}
+
 
 .header {
   position: relative;
@@ -11515,21 +11526,11 @@ textarea.form-control {
   .header {
     background-size: cover;
     background-position: center;
-    background-attachment:fixed; 
+    background-attachment:scroll; 
   }
 }
-@media (max-width: 349px) {
-  .header .shape svg {
-    bottom: 0;
-  }
-  .header {
-    background-size:cover;
-    background-position: center;
-    background-attachment:local; 
-  }
-  
-  
-}
+
+
 
 .header.components-header {
   max-height: 450px !important;
