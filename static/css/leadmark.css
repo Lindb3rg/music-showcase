@@ -4655,9 +4655,9 @@ input[type="button"].btn-block {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid transparent;
   border-radius: 0.1rem;
 }
@@ -11419,17 +11419,6 @@ textarea.form-control {
     margin-top: 15px;
   }
 }
-@media (max-width: 576px) {
-  .header {
-    position: relative;
-    height: 100vh;
-    min-height: 500px;
-    background: url(../imgs/header.jpg) no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
-  }
-}
-
 
 .header {
   position: relative;
