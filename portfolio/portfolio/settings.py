@@ -163,11 +163,12 @@ DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = 'AKIAU6GDVC2YG2472UGZ'
-AWS_SECRET_ACCESS_KEY = '3M5EsP9o863N6x5GJxo2DleZM0FYi09ED59mDGEw'
-AWS_STORAGE_BUCKET_NAME = 'musicshowcase'
-AWS_S3_REGION_NAME = 'us-east-1'  # Example: 'us-west-1', 'eu-central-1'
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')  # Example: 'us-west-1'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
 
 # Define the URL for media files
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
