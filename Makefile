@@ -13,7 +13,7 @@ prev_migration = $(shell python -c "import os, re; \
 	print(applied[-2] if len(applied) > 1 else '')")
 
 
-.PHONY: migrate migratedown list showmigrations makemigrations
+.PHONY: migrate migratedown showmigrations makemigrations heroku run
 
 run:
 	$(MANAGE) runserver
@@ -24,7 +24,10 @@ migrateup:
 makemigrations:
 	$(MANAGE) makemigrations $(APP_NAME)
 
-list showmigrations:
+heroku:
+	git push heroku main
+
+showmigrations:
 	$(MANAGE) showmigrations $(APP_NAME)
 
 migratedown:
