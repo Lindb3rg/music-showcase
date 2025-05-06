@@ -12,7 +12,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// smooth scroll
 $(document).ready(function(){
     $(".navbar .nav-link").on('click', function(event) {
 
@@ -31,7 +30,7 @@ $(document).ready(function(){
     });
 });
 
-// protfolio filters
+
 $(window).on("load", function() {
     var t = $(".portfolio-container");
     t.isotope({
@@ -56,9 +55,6 @@ $(window).on("load", function() {
 })
 
 $(document).ready(function() {
-    // Other existing code...
-
-    // Check for form submission status from the Django context
     const formSubmissionStatus = document.getElementById('form-submission-status').innerText;
 
     if (formSubmissionStatus === "success") {
@@ -71,10 +67,10 @@ $(document).ready(function() {
 
 const audioPlayers = document.querySelectorAll('.audio-player');
 
-// Loop through all audio players and add event listener to each
+
 audioPlayers.forEach(player => {
     player.addEventListener('play', function() {
-        // Pause all other players when one starts playing
+
         audioPlayers.forEach(otherPlayer => {
             if (otherPlayer !== player) {
                 otherPlayer.pause();
@@ -82,38 +78,4 @@ audioPlayers.forEach(player => {
         });
     });
 });
-
-// $(document).ready(function() {
-//     // Set carousel interval (5000ms = 5 seconds)
-//     $('#carouselExampleIndicators').carousel({
-//         interval: 2000
-//     });
-    
-//     // Optional: Pause carousel on hover
-//     $('#carouselExampleIndicators').hover(
-//         function() {
-//             $(this).carousel('pause');
-//         },
-//         function() {
-//             $(this).carousel('cycle');
-//         }
-//     );
-// });
-
-// $(document).ready(function() {
-//     // For Bootstrap 4 (most likely used in Leadmark)
-//     $('#carouselExampleIndicators').carousel({
-//         interval: 3000  // Set your desired interval in milliseconds (3000 = 3 seconds)
-//     });
-    
-//     // If using Bootstrap 5
-//     /*
-//     const myCarousel = document.querySelector('#carouselExampleIndicators');
-//     const carousel = new bootstrap.Carousel(myCarousel, {
-//         interval: 3000  // Set your desired interval in milliseconds
-//     });
-//     */
-// });
-
-
 
