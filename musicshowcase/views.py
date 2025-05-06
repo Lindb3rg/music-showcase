@@ -1,10 +1,9 @@
 from django.shortcuts import render,redirect
-from .models import Composition, Service
+from .models import Composition, Service, Image
 from django.core.mail import send_mail
 from django.conf import settings
-from django.contrib import messages
 from .forms import ContactForm
-
+import boto3
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
@@ -12,20 +11,18 @@ from django.contrib.auth.decorators import login_required
 
 
 
-def components(request):
-    return render(request, 'musicshowcase/components.html', {})
 
 
-@login_required
+
 def index(request):
     
     compositions = Composition.objects.all()
     services = Service.objects.all()
+    images = Image.objects.all()
     
     unique_genres = Composition.objects.values_list('genre', flat=True).distinct()
     genres_dict = {genre: genre.replace('_', ' ') for genre in unique_genres}
     
-    # username = request.user.username
     
     success = False
     
@@ -45,10 +42,7 @@ def index(request):
             
             success = True
             
-            return redirect('musicshowcase:contact_success')
-            
-        
-            
+            return redirect('musicshowcase:contact_success')    
 
     else:
         form = ContactForm()
@@ -59,6 +53,8 @@ def index(request):
         'services': services,
         'form':form,
         'success':success,
+        'images':images,
+
     }
     
     return render(request, 'musicshowcase/index.html', context)
@@ -76,7 +72,7 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('musicshowcase:index'))  # Ensure this works
+                return redirect(reverse('musicshowcase:index'))  
             else:
                 return HttpResponse("Account not active")
         else:
@@ -95,7 +91,7 @@ def user_login(request):
         
         if user is not None:
             login(request, user)
-            return redirect('musicshowcase:index')  # Redirect to the index or any other page after login
+            return redirect('musicshowcase:index')
         else:
             # Handle login failure
             return render(request, 'musicshowcase/login.html', {'error': 'Invalid credentials.'})

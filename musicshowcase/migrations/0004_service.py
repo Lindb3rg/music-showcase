@@ -3,6 +3,35 @@
 from django.db import migrations, models
 
 
+def create_initial_services(apps, schema_editor):
+    Service = apps.get_model('musicshowcase', 'Service')
+    
+    Service.objects.create(
+        title="Music Score",
+        description="Need music for your film or video game? I can help with composing the sonic landscape for your project."
+    )
+    
+    Service.objects.create(
+        title="Studio Recording",
+        description="In need of recording your music? I can record, mix and prepare your music for mastering."
+    )
+    
+    Service.objects.create(
+        title="Mixing",
+        description="Already have recorded tracks but need it mixed? No probs! I can help you with that as well!"
+    )
+    
+    Service.objects.create(
+        title="Producing",
+        description="Just have a few musical ideas and would like to get it produced? Sure thing!"
+    )
+
+def delete_initial_services(apps, schema_editor):
+
+    Service = apps.get_model('musicshowcase', 'Service')
+    Service.objects.all().delete()
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -18,4 +47,6 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
             ],
         ),
+        migrations.RunPython(create_initial_services, delete_initial_services),
+
     ]

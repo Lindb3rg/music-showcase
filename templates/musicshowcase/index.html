@@ -28,27 +28,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">                     
                     <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Music Portfolio</a>
+                    </li>
+                    
+                    <li class="nav-item">
                         <a class="nav-link" href="#service">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About Me</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Music Portfolio</a>
-                    </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'musicshowcase:logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'musicshowcase:user_login' %}">Logout</a>
-                    </li>
-                    {% endif %} 
                 
                 </ul>
             </div>
@@ -131,6 +123,149 @@
         </div>            
     </section>
 
+    <!-- Service Section -->
+    <section  id="service" class="section pt-5">
+        
+        <div class="container pt-5">
+            
+            <h6 class="section-title text-center">Services</h6>
+            
+            <div class="row pt-3">
+                {% for service in services %}
+                <div class="col-md-6">
+                    <div class="card mb-4 mb-md-4">
+                        <div class="card-body">
+                            <small class="text-primary font-weight-bold">{{ forloop.counter }}</small>
+                            <h5 class="card-title mt-3"> {{ service.title }} <h5>
+                            <p class="mb-0"> {{ service.description }} </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}   
+            
+                
+                
+            </div>
+             
+            
+        </div>
+        
+    </section>
+
+    
+    <!-- End OF Service Section -->
+
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6 pr-md-5 mb-4 mb-md-0">
+                    <h6 class="section-title mb-0">About Me</h6>
+                    <h6 class="section-subtitle mb-4">MUSICIAN PROFILE</h6>
+                    <p>
+                        I am a versatile multi-instrumentalist with formal training and extensive performance experience across multiple genres.
+
+                    </p>
+                    <img src="{% static 'imgs/studio.jpg' %}" alt="" class="w-100 mt-3 shadow-sm mb-4">
+                    <h6 class="section-subtitle mb-4">PROFESSIONAL JOURNEY</h6>
+                    <p>
+                        My musical career began in 2003 when I joined a local death metal band as a drummer. Even in this early role, I demonstrated my multi-instrumental talents by contributing to songwriting and playing guitar. This experience shaped my distinctive approach as a drummer who thinks like a composer.
+In 2009, I reached a significant milestone when I joined the established power metal band Axenstar as their drummer, recording for their album and gaining valuable studio experience.
+My professional development was significantly influenced by two important mentors. Local drummer Svetlan Råket (known for his work with Zello, Par Lindh Project, Lisa LaRue Project 2K9, and Timecode Alpha) inspired my decision to further my education in Los Angeles. Additionally, world-renowned Los Angeles-based drummer Joey Heredia provided invaluable private instruction and mentorship, substantially enhancing my technical proficiency and musical perspective.
+
+
+                    </p>
+
+                    
+
+                </div>
+                <div class="col-md-6 pl-md-5">
+                    <div class="row">
+                        
+                        {% comment %} <div class="col-12">
+                            <section id="image-carousel" class="section">
+                                <h2 class="mb-4">Photo Gallery</h2>
+                                
+                                <!-- Carousel Component -->
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        {% for image in images %}
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" 
+                                                {% if forloop.first %}class="active"{% endif %}></li>
+                                        {% endfor %}
+                                    </ol>
+                                    
+                                    <!-- Carousel Items -->
+                                    <div class="carousel-inner rounded shadow">
+                                        {% for image in images %}
+                                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.title }}">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>{{ image.title }}</h5>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    <!-- Navigation Controls -->
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </section>
+                        </div> {% endcomment %}
+
+                        <div class="col-12 mt-4">
+                            <h6 class="section-subtitle mb-4">EDUCATION & TRAINING</h6>
+                            <p>After showing early promise as a musician, I pursued professional training at the Los Angeles College of Music, where I earned my Associate of Arts in Drums (2015-2017). During this intensive program, I had the privilege of studying under world-renowned drummers including Ralph Humphrey, Joe Porcaro, Joey Heredia, and Gary Ferguson.
+My curriculum encompassed both technical and theoretical aspects of music. I developed advanced skills in sight reading, transcription, specialized playing techniques, and complex rhythm studies. Beyond percussion, I expanded my musical foundation through courses in music theory, piano proficiency, recording technology, and music business practices.
+                            </p>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <h6 class="section-subtitle mb-4">GENRE EXPERTISE</h6>
+                            <p>My formal education provided me with versatility across numerous musical styles including Roots/Blues, Rock/Pop, Jazz, Big Band, World Music, Contemporary, and complex compositions featuring odd meters and advanced rhythmic structures.</p>
+                            {% comment %} <p>Follow me on instagram:</p> <a href="http://www.instagram.com/adamlindbergmusic" target="blank"><div class="ti-instagram white" style="font-size: 40px;"></div></a> {% endcomment %}
+                        </div>
+                        <div class="col-12 mt-4">
+                            <h6 class="section-subtitle mb-4">CURRENT PROJECTS</h6>
+                            <p>After returning to Sweden in 2018, I methodically built my personal recording studio, creating a professional space for composition and production. This environment supports my current collaboration with Mattias Tiselius (of The Drake Equation) in our band Agent Bonfire, which serves as our creative outlet for musical exploration and expression.
+In recent years, I've expanded my skill set to include music production and mixing, mastering the technical aspects of bringing compositions from concept to finished product.</p>
+                            {% comment %} <p>Follow me on instagram:</p> <a href="http://www.instagram.com/adamlindbergmusic" target="blank"><div class="ti-instagram white" style="font-size: 40px;"></div></a> {% endcomment %}
+                        </div>
+                        <div class="col-12 mt-4">
+                            <h3 class="section-title mb-0">MUSICAL PHILOSOPHY</h3>
+                            
+                            <p>
+                            At my core, I identify as a songwriter, approaching percussion with a composer's sensibility rather than merely as a timekeeper. Throughout my career, I've cultivated my abilities on piano, deepening my understanding of harmony and expanding my compositional capabilities. This integrative approach allows me to write authentically across diverse musical styles, bringing a unique perspective to each project I undertake.
+
+                            </p>
+
+                            
+                        </div>
+
+
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>              
+        </div>
+        
+    </section>
+    <!-- End OF About Section -->
+
+    <!-- HTML Structure for the Carousel -->
 
     
     <section class="section pt-5">
@@ -214,70 +349,7 @@
     </section>
 
 
-    <!-- Service Section -->
-    <section  id="service" class="section pt-5">
-        
-        <div class="container">
-            
-            <h6 class="section-title text-center">Services</h6>
-            
-            <div class="row">
-                {% for service in services %}
-                <div class="col-md-4">
-                    <div class="card mb-4 mb-md-0">
-                        <div class="card-body">
-                            <small class="text-primary font-weight-bold">{{ forloop.counter }}</small>
-                            <h5 class="card-title mt-3"> {{ service.title }} <h5>
-                            <p class="mb-0"> {{ service.description }} </p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}   
-            
-                
-                
-            </div>
-             
-            
-        </div>
-        
-    </section>
-
     
-    <!-- End OF Service Section -->
-
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-md-6 pr-md-5 mb-4 mb-md-0">
-                    <h6 class="section-title mb-0">About Me</h6>
-                    <h6 class="section-subtitle mb-4">Architecto provident deserunt</h6>
-                    <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate molestiae temporibus et tenetur unde quasi, cum nemo quo, molestias architecto alias voluptatibus corrupti corporis earum. Necessitatibus maxime modi ipsam, quod!</p>
-                    <img src="{% static 'imgs/studio.jpg' %}" alt="" class="w-100 mt-3 shadow-sm">
-                </div>
-                <div class="col-md-6 pl-md-5">
-                    <div class="row">
-                        <div class="col-6">
-                            <img src="{% static 'imgs/synth.jpg' %}" alt="" class="w-100 shadow-sm">
-                        </div>
-                        <div class="col-6">
-                            <img src="{% static 'imgs/headphones.jpg'%}" alt="" class="w-100 shadow-sm">
-                        </div>
-                        <div class="col-12 mt-4">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo iusto quidem laborum atque, sapiente ipsa excepturi fuga cum sed in assumenda eos quasi harum culpa laboriosam nulla, incidunt quae. Voluptatum.</p>
-                            <p><b>Aliquid fuga sunt velit, temporibus molestias ab. Ipsa nesciunt totam, aliquid dignissimos.</b><br>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ut a dolorem, consectetur, eos suscipit consequatur magnam est dolore obcaecati adipisci expedita, vero, iste ducimus qui numquam animi facilis officia?</p>
-                            <p>Follow me on instagram:</p> <a href="http://www.instagram.com/adamlindbergmusic" target="blank"><div class="ti-instagram white" style="font-size: 40px;"></div></a>
-                        </div>
-                    </div>
-                </div>
-            </div>              
-        </div>
-    </section>
-    <!-- End OF About Section -->
 
 
     

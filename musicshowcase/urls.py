@@ -6,7 +6,6 @@ app_name = 'musicshowcase'
 
 
 urlpatterns = [
-    path('components/', views.components, name='components'),  # This will be accessible at /components/
     path('', views.index, name='index'),  # This will be accessible at /
     path('success/', TemplateView.as_view(template_name='musicshowcase/contact_success.html'), name='contact_success'),  # Accessible at /success/
     path('user_login/', views.user_login, name='user_login'),

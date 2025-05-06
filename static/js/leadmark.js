@@ -81,5 +81,39 @@ audioPlayers.forEach(player => {
             }
         });
     });
-});  
+});
+
+// $(document).ready(function() {
+//     // Set carousel interval (5000ms = 5 seconds)
+//     $('#carouselExampleIndicators').carousel({
+//         interval: 2000
+//     });
+    
+//     // Optional: Pause carousel on hover
+//     $('#carouselExampleIndicators').hover(
+//         function() {
+//             $(this).carousel('pause');
+//         },
+//         function() {
+//             $(this).carousel('cycle');
+//         }
+//     );
+// });
+
+// $(document).ready(function() {
+//     // For Bootstrap 4 (most likely used in Leadmark)
+//     $('#carouselExampleIndicators').carousel({
+//         interval: 3000  // Set your desired interval in milliseconds (3000 = 3 seconds)
+//     });
+    
+//     // If using Bootstrap 5
+//     /*
+//     const myCarousel = document.querySelector('#carouselExampleIndicators');
+//     const carousel = new bootstrap.Carousel(myCarousel, {
+//         interval: 3000  // Set your desired interval in milliseconds
+//     });
+//     */
+// });
+
+
 
